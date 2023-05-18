@@ -3,13 +3,12 @@ import React from "react";
 import "styles/TopicListItem.scss";
 
 const TopicListItem = (props) => {
-
-  const { id, label, link } = props;
+  const { id, slug, title } = props;
   return (
     <>
       <div className="topic-list--item">
         {/* Insert React */}
-        <span>{label}</span>
+        <span>{title}</span>
       </div>
     </>
   );

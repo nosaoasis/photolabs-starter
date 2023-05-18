@@ -2,13 +2,12 @@ import React from "react";
 
 import "styles/PhotoList.scss";
 import PhotoListItem from "components/PhotoListItem";
+import photoData from "mocks/photos";
 
 const PhotoList = (props) => {
-  const { photos } = props;
-
-  const photoList = photos.map((photo) => {
-    const { id } = photo;
-    return <PhotoListItem key={id} {...photo} />;
+  const photoList = photoData.map((photo) => {
+    const { id, user, urls } = photo;
+    return <PhotoListItem key={id} user={user} urls={urls} />;
   });
 
   return (
