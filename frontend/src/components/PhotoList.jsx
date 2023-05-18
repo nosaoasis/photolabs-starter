@@ -1,7 +1,7 @@
 import React from "react";
 
-import "../styles/PhotoList.scss";
-import PhotoListItem from "./PhotoListItem";
+import "styles/PhotoList.scss";
+import PhotoListItem from "components/PhotoListItem";
 
 const PhotoList = (props) => {
   const { photos } = props;

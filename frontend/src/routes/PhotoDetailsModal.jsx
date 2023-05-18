@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../styles/PhotoDetailsModal.scss'
+import 'styles/PhotoDetailsModal.scss'
 
 export const PhotoDetailsModal = () => (
   <div className='photo-details-modal'>
