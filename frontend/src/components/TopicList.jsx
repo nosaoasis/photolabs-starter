@@ -3,6 +3,7 @@ import React from "react";
 import "styles/TopicList.scss";
 import TopicListItem from "components/TopicListItem";
 import topicLists from "mocks/topics";
+import FavBadge from "components/FavBadge";
 
 const TopicList = (props) => {
   const topicList = topicLists.map((topic, index) => {
@@ -14,6 +15,8 @@ const TopicList = (props) => {
       <div className="top-nav-bar--topic-list">
         {/* Insert React */}
         {topicList}
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <FavBadge />
       </div>
     </>
   );
