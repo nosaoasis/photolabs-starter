@@ -4,7 +4,7 @@ import "styles/PhotoList.scss";
 import PhotoListItem from "components/PhotoListItem";
 
 const PhotoList = (props) => {
-  const { favPhotoList, dispatch, mockPhotos } = props;
+  const { favPhotoList, dispatch, mockPhotos, photoModalClick } = props;
   const photoList = mockPhotos.map((photo) => {
     const { id, user, urls } = photo;
     return (
@@ -15,6 +15,7 @@ const PhotoList = (props) => {
         urls={urls}
         favPhotoList={favPhotoList}
         dispatch={dispatch}
+        photoModalClick={photoModalClick}
       />
     );
   });

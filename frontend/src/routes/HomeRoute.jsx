@@ -4,9 +4,12 @@ import "styles/HomeRoute.scss";
 import TopNavigation from "components/TopNavigationBar";
 import PhotoList from "components/PhotoList";
 import { reducer } from "reducers/photoReducer";
+import PhotoDetailsModal from "./PhotoDetailsModal";
 
 const HomeRoute = (props) => {
-  const { topics, mockPhotos } = props;
+  const { topics, mockPhotos, photoClicked } = props;
+
+  const [showPhotoModal, setShowPhotoModal] = useState(false)
 
   const defaultState = {
     favPhotoList: [],
@@ -23,6 +26,7 @@ const HomeRoute = (props) => {
           mockPhotos={mockPhotos}
           favPhotoList={state.favPhotoList}
           dispatch={dispatch}
+          photoModalClick={photoClicked}
         />
       </div>
     </>
