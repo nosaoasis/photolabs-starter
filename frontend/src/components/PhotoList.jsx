@@ -2,12 +2,21 @@ import React from "react";
 
 import "styles/PhotoList.scss";
 import PhotoListItem from "components/PhotoListItem";
-import photoData from "mocks/photos";
 
 const PhotoList = (props) => {
-  const photoList = photoData.map((photo) => {
+  const { favPhotoList, dispatch, mockPhotos } = props;
+  const photoList = mockPhotos.map((photo) => {
     const { id, user, urls } = photo;
-    return <PhotoListItem key={id} user={user} urls={urls} />;
+    return (
+      <PhotoListItem
+        key={id}
+        id={id}
+        user={user}
+        urls={urls}
+        favPhotoList={favPhotoList}
+        dispatch={dispatch}
+      />
+    );
   });
 
   return (
