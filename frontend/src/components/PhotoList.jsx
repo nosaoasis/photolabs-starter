@@ -12,13 +12,14 @@ const PhotoList = (props) => {
   } = props;
 
   const photoList = mockPhotos.map((photo) => {
-    const { id, user, urls } = photo;
+    const { id, user, urls, location } = photo;
     return (
       <PhotoListItem
         key={id}
         id={id}
         user={user}
         urls={urls}
+        // location={location}
         showModal={showModal}
         favPhotoList={favPhotoList}
         photoFavBtnClicked={photoFavBtnClicked}

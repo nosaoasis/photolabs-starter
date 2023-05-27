@@ -5,6 +5,7 @@ import PhotoList from "components/PhotoList";
 import PhotoFavButton from "components/PhotoFavButton";
 
 export const PhotoDetailsModal = (props) => {
+  console.log("Props value is", props)
   const { photoDetails, closeModal, photoFavBtnClicked, favPhotoList } = props;
   const { urls, similar_photos, id, location, user } = photoDetails;
 
