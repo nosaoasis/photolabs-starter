@@ -5,10 +5,10 @@ import PhotoFavButton from "components/PhotoFavButton";
 
 const PhotoListItem = (props) => {
   /* Insert React */
-  const { id, user, urls, location, favPhotoList, photoFavBtnClicked, showModal } = props;
+  const { id, user, urls, favPhotoList, photoFavBtnClicked, showModal } = props;
 
   const photoIsFavorited = useMemo(() => {
-    favPhotoList.includes(id);
+    favPhotoList.includes(id)
   }, [favPhotoList, id]);
 
   return (
@@ -26,13 +26,6 @@ const PhotoListItem = (props) => {
           className={"photo-list--image"}
           onClick={() => showModal(id)}
         />
-        {/* <div className="photo-list--user-details">
-        <img className="photo-list--user-profile" src={user.profile} />
-        <div className="photo-list--user-info">
-          <span className="photo-list--username">{user.username}</span><br/>
-          <span className="photo-list--user-location">{`${location.city}, ${location.country}`}</span>
-        </div>
-      </div> */}
       </li>
     </>
   );
