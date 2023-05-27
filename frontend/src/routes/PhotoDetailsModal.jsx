@@ -9,7 +9,8 @@ export const PhotoDetailsModal = (props) => {
   const { urls, similar_photos, id, location, user } = photoDetails;
 
   const photoIsFavorited = useMemo(() => {
-    favPhotoList.includes(id)
+    if (favPhotoList.includes(id)) return true
+    return false
   }, [favPhotoList, id]);
 
   return (
