@@ -21,6 +21,7 @@ const PhotoList = (props) => {
         urls={urls}
         showModal={showModal}
         favPhotoList={favPhotoList}
+        photoFavBtnClicked={photoFavBtnClicked}
       />
     );
   });

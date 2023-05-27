@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useMemo } from "react";
 
 import "styles/PhotoDetailsModal.scss";
 import PhotoList from "components/PhotoList";
+import PhotoFavButton from "components/PhotoFavButton";
 
 export const PhotoDetailsModal = (props) => {
-  const { photoDetails, closeModal } = props;
-  const { urls, similar_photos } = photoDetails;
+  const { photoDetails, closeModal, photoFavBtnClicked, favPhotoList } = props;
+  const { urls, similar_photos, id, location, user } = photoDetails;
+
+  const photoIsFavorited = useMemo(() => {
+    favPhotoList.includes(id)
+  }, [favPhotoList, id]);
+
   return (
     <div className="photo-details-modal">
       <button
@@ -41,10 +47,23 @@ export const PhotoDetailsModal = (props) => {
         </svg>
       </button>
       <div className="photo-details-modal--images">
-        <img className="photo-details-modal--image" src={urls.regular} />
-        <header className="photo-details-modal--header">
-          <PhotoList mockPhotos={Object.values(similar_photos)} />
-        </header>
+        <PhotoFavButton
+          photoFavBtnClicked={photoFavBtnClicked}
+          id={id}
+          photoIsFavorited={photoIsFavorited}
+        />
+        <img className="photo-details-modal--image" src={urls.full} />
+
+        <div className="photo-details-modal--header">
+          <span>Similar Photos</span>
+        </div>
+      </div>
+      <div className="photo-details-modal--similar-photos">
+        <PhotoList
+          photoFavBtnClicked={photoFavBtnClicked}
+          favPhotoList={favPhotoList}
+          mockPhotos={Object.values(similar_photos)}
+        />
       </div>
     </div>
   );

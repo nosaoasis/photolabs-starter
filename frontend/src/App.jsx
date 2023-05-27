@@ -23,6 +23,8 @@ const App = () => {
           <PhotoDetailsModal
             closeModal={closeModal}
             photoDetails={state.modalPhotoDetails}
+            photoFavBtnClicked={photoFavBtnClicked}
+            favPhotoList={state.favPhotoList}
           />
         )}
       </div>

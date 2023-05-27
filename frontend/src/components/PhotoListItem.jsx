@@ -1,19 +1,16 @@
-import React from "react";
+import React, { useMemo } from "react";
 
 import "styles/PhotoListItem.scss";
 import PhotoFavButton from "components/PhotoFavButton";
 
 const PhotoListItem = (props) => {
   /* Insert React */
-  const {
-    id,
-    user,
-    urls,
-    favPhotoList,
-    photoFavBtnClicked,
-    showModal,
-  } = props;
-  
+  const { id, user, urls, favPhotoList, photoFavBtnClicked, showModal } = props;
+
+  const photoIsFavorited = useMemo(() => {
+    favPhotoList.includes(id)
+  }, [favPhotoList, id]);
+
   return (
     <>
       <li className="photo-list--item">
@@ -22,6 +19,7 @@ const PhotoListItem = (props) => {
           user={user}
           favPhotoList={favPhotoList}
           photoFavBtnClicked={photoFavBtnClicked}
+          photoIsFavorited={photoIsFavorited}
         />
         <img
           src={urls.regular}
