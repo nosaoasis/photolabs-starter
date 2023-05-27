@@ -5,7 +5,15 @@ import PhotoFavButton from "components/PhotoFavButton";
 
 const PhotoListItem = (props) => {
   /* Insert React */
-  const { id, user, urls, favPhotoList, dispatch, photoModalClick } = props;
+  const {
+    id,
+    user,
+    urls,
+    favPhotoList,
+    photoFavBtnClicked,
+    showModal,
+  } = props;
+  
   return (
     <>
       <li className="photo-list--item">
@@ -13,9 +21,13 @@ const PhotoListItem = (props) => {
           id={id}
           user={user}
           favPhotoList={favPhotoList}
-          dispatch={dispatch}
+          photoFavBtnClicked={photoFavBtnClicked}
         />
-        <img src={urls.full} className="photo-list--image" onClick={photoModalClick} />
+        <img
+          src={urls.regular}
+          className={"photo-list--image"}
+          onClick={() => showModal(id)}
+        />
       </li>
     </>
   );

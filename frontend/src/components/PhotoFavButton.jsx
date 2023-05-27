@@ -1,20 +1,14 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 import { FavIcon } from "./FavIcon";
 import "styles/PhotoFavButton.scss";
 
 function PhotoFavButton(props) {
-  const { id, favPhotoList, dispatch, user } = props;
+  const { id, favPhotoList, dispatch, user, photoFavBtnClicked } = props;
   const [isFavorited, setIsFavorited] = useState(false);
 
   const handleIsFavorited = (id) => {
-    dispatch({ type: "PHOTO_LIKE_BTN_CLICK", payload: { id, user } });
-    let newFavPhotoList;
-    if (favPhotoList.includes(id)) {
-      newFavPhotoList = favPhotoList.filter((item) => item != id);
-    } else {
-      newFavPhotoList = [...favPhotoList, id];
-    }
+    photoFavBtnClicked(id)
     setIsFavorited(!isFavorited);
     return null;
   };

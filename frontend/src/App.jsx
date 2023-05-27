@@ -1,24 +1,30 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 import "./App.scss";
 import HomeRoute from "routes/HomeRoute";
 import PhotoDetailsModal from "routes/PhotoDetailsModal";
-import topics from "mocks/topics";
-import mockPhotos from "mocks/photos";
+
+import useApplicationData from "hooks/useApplicationData";
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
-  const [showPhotoModal, setShowPhotoModal] = useState(false)
-
-  const handlePhotoClick = () => {
-    setShowPhotoModal(!showPhotoModal)
-  }
+  const { state, photoFavBtnClicked, showModal, closeModal } =
+    useApplicationData();
 
   return (
     <>
       <div className="App">
-        <HomeRoute topics={topics} mockPhotos={mockPhotos} photoClicked={handlePhotoClick} />
-        {showPhotoModal && <PhotoDetailsModal photoClicked={handlePhotoClick} />}
+        <HomeRoute
+          state={state}
+          photoFavBtnClicked={photoFavBtnClicked}
+          showModal={showModal}
+        />
+        {state.isModalOpen && (
+          <PhotoDetailsModal
+            closeModal={closeModal}
+            photoDetails={state.modalPhotoDetails}
+          />
+        )}
       </div>
     </>
   );
