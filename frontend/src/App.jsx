@@ -18,7 +18,6 @@ const App = () => {
 
     Promise.all([axios.get(topicsApi), axios.get(photosApi)]).then((all) => {
       const [topics, photos] = all;
-      console.log(photos.data)
       setAppData(topics.data, photos.data);
     }).catch(err => console.log("An unexpected error occured", err))
   }, []);
