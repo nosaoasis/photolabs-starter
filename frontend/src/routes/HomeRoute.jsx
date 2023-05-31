@@ -9,6 +9,7 @@ const HomeRoute = (props) => {
     state,
     photoFavBtnClicked,
     showModal,
+    getTopicPhotos
   } = props;
 
   return (
@@ -18,6 +19,7 @@ const HomeRoute = (props) => {
         <TopNavigation
           favPhotoList={state.favPhotoList}
           topics={state.topics}
+          getTopicPhotos={getTopicPhotos}
         />
         <PhotoList
           mockPhotos={state.photos}

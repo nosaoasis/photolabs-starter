@@ -1,14 +1,30 @@
 import React from "react";
+import axios from "axios";
 
 import "styles/TopicListItem.scss";
 
 const TopicListItem = (props) => {
-  const { title } = props;
+  const { id, title, getTopicPhotos } = props;
+
+  const getPhotos = (id) => {
+    axios
+      .get(`/api/topics/photos/${id}`)
+      .then((res) => {
+        getTopicPhotos(res.data);
+      })
+      .catch((err) =>
+        console.log(
+          "An unexpected error occured attempting to perform request.",
+          err
+        )
+      );
+  };
+
   return (
     <>
       <div className="topic-list--item">
         {/* Insert React */}
-        <span>{title}</span>
+        <span onClick={() => getPhotos(id)}>{title}</span>
       </div>
     </>
   );

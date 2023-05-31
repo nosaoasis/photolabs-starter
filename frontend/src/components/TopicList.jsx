@@ -5,9 +5,11 @@ import TopicListItem from "components/TopicListItem";
 import FavBadge from "components/FavBadge";
 
 const TopicList = (props) => {
-  const { favPhotoList, topics } = props;
+  const { favPhotoList, topics, getTopicPhotos } = props;
   const topicList = topics.map((topic, index) => {
-    return <TopicListItem key={index} {...topic} />;
+    return (
+      <TopicListItem key={index} {...topic} getTopicPhotos={getTopicPhotos} />
+    );
   });
 
   return (
